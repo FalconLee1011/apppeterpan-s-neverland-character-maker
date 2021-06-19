@@ -22,7 +22,7 @@ struct RegisterView: View {
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .frame(width: 200)
         .autocapitalization(.none)
-      TextField("Password", text: $password)
+      SecureField("Password", text: $password)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .frame(width: 200)
         .autocapitalization(.none)

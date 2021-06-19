@@ -15,18 +15,23 @@ struct LoginView: View {
   @State var showRegisterSheet: Bool = false
   var body: some View {
     VStack{
+      Text("xAvatar")
+        .font(.system(size: 40))
+        .padding(.bottom, 5)
       Text("Login | 登入")
+        .padding(.bottom, 10)
       TextField("Email", text: $email)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .frame(width: 200)
         .autocapitalization(.none)
-      TextField("Password", text: $password)
+      SecureField("Password", text: $password)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .frame(width: 200)
         .autocapitalization(.none)
         .alert(isPresented: $showAlert) { () -> Alert in
           Alert(title: Text("Invalid email or password"))
         }
+        .padding(.bottom, 10)
       Button("Login"){
         FirebaseStuff.FirebaseAuth.login(mail: email, password: password){ user in
           print("attmpt")
